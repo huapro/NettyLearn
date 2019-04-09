@@ -51,13 +51,14 @@ public final class ClientCookieDecoder extends CookieDecoder {
      *
      * @return the decoded {@link Cookie}
      */
+    //Cookie解析
     public Cookie decode(String header) {
         final int headerLen = checkNotNull(header, "header").length();
 
         if (headerLen == 0) {
             return null;
         }
-
+//先创建一个空白Cookie对象，然后将变量逐步解析
         CookieBuilder cookieBuilder = null;
 
         loop: for (int i = 0;;) {
@@ -140,6 +141,7 @@ public final class ClientCookieDecoder extends CookieDecoder {
                 cookieBuilder.appendAttribute(nameBegin, nameEnd, valueBegin, valueEnd);
             }
         }
+        //返回cookieBuilder对象
         return cookieBuilder != null ? cookieBuilder.cookie() : null;
     }
 

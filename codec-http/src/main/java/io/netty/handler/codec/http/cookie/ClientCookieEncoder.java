@@ -71,6 +71,7 @@ public final class ClientCookieEncoder extends CookieEncoder {
      *            the cookie value
      * @return a Rfc6265 style Cookie header value
      */
+    //开始包装
     public String encode(String name, String value) {
         return encode(new DefaultCookie(name, value));
     }
